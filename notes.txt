@@ -1,0 +1,16 @@
+features:
+- keep track of applications
+	company, position, date submitted, method, status
+
+	company:
+	position: UI/UX, SDE, Web, Android, ??
+	date submitted: mm/dd
+	method: online, referral
+	status: rejected, received offer, interviewing, to-apply, waiting
+	contact:
+
+	click open to page with:
+		notes on interview
+		notes on talks with recruiters, other people
+		pros/cons?
+		technical interview screen
