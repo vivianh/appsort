@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_application') }}" method=post class=add>
+      <dl>
+        <dt>
+          <input type=string size=30 name=company placeholder="Company">
+          <input type=text size=30 name=position placeholder="Position">
+          <input type=text size=10 name=date placeholder="Date">
+        <dt>
+          
+            <input type=text size=30 name=status placeholder="Status">
+          
+          <!--
+          <div id="dd" class="wrapper" tabindex="1">
+            <span>Status</span>
+            <ul class="dropdown">
+              <li><a href="#">Interviewing</a></li>
+              <li><a href="#">Got Offer</a></li>
+              <li><a href="#">Waiting</a></li>
+            </ul>
+          </div>
+          
+          <select name="Status">
+            <option value="interviewing">Interviewing</option>
+            <option value="offer">Got Offer</option>
+            <option value="waiting">Waiting</option>
+          </select>
+          -->
+          <input type=text size=30 name=contact placeholder="Contact">
+        <dt>
+          <textarea name=notes rows=5 cols=40 placeholder="Notes..."></textarea>
+          <textarea name=interview rows=5 cols=40 placeholder="Interview..."></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  {% endif %}
+  <div class=applications>
+    <div class="container">
+      <div class="col company title"> COMPANY </div>
+      <div class="col position title"> POSITION </div>
+      <div class="col date title"> DATE </div>
+      <div class="col status title"> STATUS </div>
+      <div class="col contact title"> CONTACT </div>
+    </div>
+
+  {% for app in applications %}
+    <!--
+    <li><h2>{{ app.company }}</h2>{{ app.position }} {{ app.date }} {{ app.status }} {{ app.contact }}
+    -->
+    <div class="container">
+      <div class="col company"> {{ app.company }} </div>
+      <div class="col position"> {{ app.position }} </div>
+      <div class="col date"> {{ app.date }} </div>
+      <div class="col status"> {{ app.status }} </div>
+      <div class="col contact"> {{ app.contact }} </div>
+    </div>
+  {% else %}
+    <em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+{% endblock %}
