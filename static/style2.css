@@ -1,0 +1,166 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+	font-family: 'Droid Sans'; 
+	background: #eee; 
+}
+
+/*
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Droid Sans', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+*/
+
+h1 {
+	font-family: 'Droid Sans';
+	font-weight: 700;
+	font-size: 4em;
+	color: steelblue;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.page {
+	margin: 0 auto; /*2em auto for top/bottom*/
+	width: 60em;
+	/*border: 2px solid #ccc;
+	border-radius: 5px;*/
+	padding: 0.8em;
+	/*background: white;*/
+}
+
+.metanav {
+	text-align: right; 
+	font-size: 0.8em;
+	font-family: 'Droid Sans';
+	padding: 0.3em;
+  margin-bottom: 1em;
+  background: #fafafa; 
+}
+
+/*
+.applications  {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+*/
+/*
+.applications li{ margin: 0.8em 1.2em; }
+.applications li h2  { margin-left: -1em; }
+*/
+
+.add {
+	font-size: 1.2em; /*0.9em*/
+	font-family: 'Droid Sans';
+	font-weight: 400;
+	/*border-bottom: 1px solid #ccc;*/
+}
+
+.add dt {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+input {
+	border: 1px solid #dadada;
+	font-size: 18px;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+select {
+	border-radius: 4px;
+	padding: 5px;
+	font-size: 18px;
+	background-color: #fafafa;
+	border: none;
+}
+
+textarea {
+	border: 1px solid #dadada;
+	padding: 5px;
+}
+
+.flash {
+	background: #CEE5F5;
+	padding: 0.5em;
+  border: 1px solid #AACBE2;
+}
+
+.error {
+	background: #F0D6D6;
+	padding: 0.5em;
+}
+
+.col {
+	display: inline-block;
+	font-family: 'Droid Sans';
+	color: gray;
+	padding: .5em;
+	margin: .2em .1em;
+	background: white;
+	line-height: 1em;
+	font-size: 20px;
+	/*text-align: left;*/
+	font-weight: 500;
+}
+	.col.title {
+		background: purple;
+		color: white;
+		/*font-size: 16px;*/
+		font-weight: 700;
+	}
+	.company {
+		width: 12em;
+	}
+	.col.position {
+		width: 6em;
+	}
+	.col.date {
+		width: 4em;
+	}
+	.col.status {
+		width: 10em;
+	}
+	.col.contact {
+		width: 10em;
+	}
+
+.container {
+}
+
+.wrapper {
+	position: relative; /*abs positioning for children and psuedo elements*/
+	width: 100px;
+	padding: 10px;
+	margin: 0 auto;
+
+	background: #9bc7de;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+
+	font-weight: bold;
+}
+
+.wrapper:after {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	margin-top: -6px;
+	border-width: 6px 0 6px 6px;
+	border-style: solid;
+	border-color: transparent #fff;
+}
