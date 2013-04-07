@@ -52,7 +52,7 @@ def query_db(query, args=(), one=False):
 
 
 @app.route('/')
-def show_applications():
+def show():
 	cur = g.db.execute('select company, position, date, status, contact \
 						from applications order by id desc')
 	applications = [dict(company=row[0], position=row[1], date=row[2],
@@ -95,7 +95,6 @@ def logout():
 	session.pop('logged_in', None)
 	flash('You were logged out')
 	return redirect(url_for('show'))
-
 
 if __name__ == '__main__':
 	app.run()

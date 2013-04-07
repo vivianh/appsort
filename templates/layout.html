@@ -3,7 +3,13 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='reset.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style2.css') }}">
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700,400italic|Arvo:400,700' rel='stylesheet'>
-<script type="text/javascript" src="{{ url_for('static', filename='form.js')}}"></script> 
+<script src="{{ url_for('static', filename='jquery-1.9.1.min.js')}}"></script>
+<script src="{{ url_for('static', filename='jquery-ui-1.8.9.js')}}"></script>
+<!--
+<script src="{{ url_for('static', filename='form.js')}}"></script> 
+-->
+<script src="{{ url_for('static', filename='editinplace.js')}}"></script> 
+<script src="{{ url_for('static', filename='edit.js')}}"></script> 
 <div class=page>
   <h1>appsort</h1>
   <div class=metanav>

@@ -30,7 +30,7 @@ a {
 
 .page {
 	margin: 0 auto; /*2em auto for top/bottom*/
-	width: 60em;
+	width: 65em;
 	/*border: 2px solid #ccc;
 	border-radius: 5px;*/
 	padding: 0.8em;
@@ -114,7 +114,7 @@ textarea {
 	font-weight: 500;
 }
 	.col.title {
-		background: purple;
+		background: #a177a9;/*#d18fea;*/
 		color: white;
 		/*font-size: 16px;*/
 		font-weight: 700;
@@ -123,7 +123,7 @@ textarea {
 		width: 12em;
 	}
 	.col.position {
-		width: 6em;
+		width: 10em;
 	}
 	.col.date {
 		width: 4em;
