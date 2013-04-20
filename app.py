@@ -67,11 +67,23 @@ def add_application():
     g.db.execute('insert into applications (company, position, date, status, \
     			 contact, notes, interview) values (?, ?, ?, ?, ?, ?, ?)',
                  [request.form['company'], request.form['position'], 
-                  request.form['date'], request.form['status'], request.form['contact'],
+                  request.form['date'], request.form['Status'], request.form['contact'],
                   request.form['notes'], request.form['interview']])
     g.db.commit()
     flash('New application was successfully added')
     return redirect(url_for('show'))
+
+
+@app.route('/<comp>', methods=['GET'])
+def see_company(comp=None):
+	if not session.get('logged_in'):
+			abort(401)
+	c = g.db.execute('select company, position, date, status, contact, \
+										notes, interview from applications where company = ?', 
+										[comp]).fetchone()
+	if c is None:
+		return redirect(url_for('show'))
+	return render_template('company.html', company=c)
 
 
 @app.route('/login', methods=['GET', 'POST'])
