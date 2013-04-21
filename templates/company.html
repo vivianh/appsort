@@ -10,7 +10,7 @@
     </div>
 
     <div class="container">
-      <div class="col company edit"> {{ company[0] }} </div>
+      <div class="col company"> {{ company[0] }} </div>
       <div class="col position"> {{ company[1] }} </div>
       <div class="col date"> {{ company[2] }} </div>
       <div class="col status"> {{ company[3] }} </div>
@@ -18,11 +18,12 @@
     </div>
 
     <div class="container">
-      <div class="col company edit"> Notes </div>
+      <div class="col company"> Notes </div>
+      <div class="col notes"> {{ company[5] }} </div>
     </div>
 
     <div class="container">
-      <div class="col company edit"> Interview </div>
+      <div class="col company"> Interview </div>
     </div>
 
 {% endblock %}

@@ -52,14 +52,16 @@
     <li><h2>{{ app.company }}</h2>{{ app.position }} {{ app.date }} {{ app.status }} {{ app.contact }}
     -->
     <div class="container">
-      <div class="col company edit"> {{ app.company }} </div>
+      <div class="col company"> {{ app.company }} </div>
       <div class="col position"> {{ app.position }} </div>
       <div class="col date"> {{ app.date }} </div>
       <div class="col status"> {{ app.status }} </div>
       <div class="col contact"> {{ app.contact }} </div>
     </div>
   {% else %}
+    <!--
     <em>Unbelievable.  No entries here so far</em>
+    -->
   {% endfor %}
   <!--
     <p id="edit">Edit me now!</p>

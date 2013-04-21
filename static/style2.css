@@ -134,6 +134,12 @@ textarea {
 	.col.contact {
 		width: 10em;
 	}
+	.col.notes {
+		width: 30em;
+	}
+	.col.interview {
+		width: 40em;
+	}
 
 .container {
 }

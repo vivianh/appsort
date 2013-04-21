@@ -60,6 +60,15 @@ def show():
 	return render_template('show.html', applications=applications)
 
 
+@app.route('/status/<s>')
+def show_status(s=None):
+	cur = g.db.execute('select company, position, date, status, contact \
+						from applications where status = ? order by id desc', [s])
+	applications = [dict(company=row[0], position=row[1], date=row[2],
+					status=row[3], contact=row[4]) for row in cur.fetchall()]
+	return render_template('show.html', applications=applications)
+
+
 @app.route('/add', methods=['POST'])
 def add_application():
     if not session.get('logged_in'):
