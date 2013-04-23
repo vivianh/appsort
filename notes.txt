@@ -4,7 +4,7 @@ features:
 
 	company:
 	position: UI/UX, SDE, Web, Android, ??
-	date submitted: mm/dd
+	date submitted: mm/dd/yyyy
 	method: online, referral
 	status: rejected, received offer, interviewing, to-apply, waiting
 	contact:
@@ -14,3 +14,12 @@ features:
 		notes on talks with recruiters, other people
 		pros/cons?
 		technical interview screen
+
+
+notes:
+- reminder feature -> google tasks
+- links back to home page, etc
+- in place editing
+- general UI/UX
+
+- doesn't utilize login/logout currently...
