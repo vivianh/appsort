@@ -32,6 +32,14 @@ a {
 		color: #a177a9;
 	}
 
+a.remind {
+	text-decoration: none;
+	color: white;
+}
+	a.remind:hover {
+		color: #EEE;
+	}
+
 .page {
 	margin: 0 auto; /*2em auto for top/bottom*/
 	width: 65em;
@@ -48,6 +56,11 @@ a {
 	padding: 0.3em;
   margin-bottom: 1em;
   background: #fafafa; 
+}
+
+.applications {
+	margin: 0;
+	padding: 0;
 }
 
 /*
@@ -156,6 +169,7 @@ textarea {
 	}
 
 .container {
+	
 }
 
 .hide {

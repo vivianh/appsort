@@ -1,19 +1,24 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class=applications>
-    <div class="container">
-        <div class="col company title"> COMPANY </div>
-        <div class="col date title"> DATE </div>
-        <div class="col contact title"> CONTACT </div>
-    </div>
-
-    {% for app in applications %}
+    <div class="applications">
         <div class="container">
-            <div class="col company"> {{ app.company }} </div>
-            <div class="col date"> {{ app.date }} </div>
-            <div class="col contact"> {{ app.contact }} </div>
+            <div class="col company title"> COMPANY </div>
+            <div class="col position title"> POSITION </div>
+            <div class="col date title"> DATE </div>
+            <div class="col contact title"> CONTACT </div>
+            <div class="col contact title"> EMAIL </div>
         </div>
-    {% else %}
-        No companies to bother!
-    {% endfor %}
+
+        {% for app in applications %}
+            <div class="container">
+                <div class="col company"> {{ app.company }} </div>
+                <div class="col position"> {{ app.position }} </div>
+                <div class="col date"> {{ app.date }} </div>
+                <div class="col contact"> {{ app.contact }} </div>
+                <div class="col contact"> <a href="mailto:{{app.email}}"> {{ app.email }} </a> </div>
+            </div>
+        {% else %}
+            aslkdfj;aslkdjf;alskjdf;lkj
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -71,11 +71,11 @@ def add_application():
     if not session.get('logged_in'):
         abort(401)
     g.db.execute('insert into applications (company, position, date, status, \
-    			 contact, notes, interview) values (?, ?, ?, ?, ?, ?, ?)',
+    			 contact, email, notes, interview) values (?, ?, ?, ?, ?, ?, ?, ?)',
                  [request.form['company'], request.form['position'], 
                   request.form['date'], request.form['Status'],
-                  request.form['contact'], request.form['notes'],
-                  request.form['interview']])
+                  request.form['contact'], request.form['email'],
+                  request.form['notes'], request.form['interview']])
     g.db.commit()
     flash('New application was successfully added')
     return redirect(url_for('show'))
@@ -117,16 +117,16 @@ def reminder():
 	today = dt.today()
 	diff = datetime.timedelta(weeks=2)
 	past = today - diff
-	cur = g.db.execute('select company, contact, date from applications where \
-						status = ?', ['Waiting'])
-	applications = [dict(company=row[0], contact=row[1], date=row[2])
-									for row in cur.fetchall()]
-	print applications
+	cur = g.db.execute('select company, position, contact, date, email from applications \
+							where status = ?', ['Waiting'])
+	applications = [dict(company=row[0], position=row[1], contact=row[2], date=row[3],
+									email=row[4]) for row in cur.fetchall()]
 	reminder = []
 	for app in applications:
 		if dt.strptime(app['date'], "%m/%d/%Y") < past:
 			reminder.append(app)
-	return render_template('reminder.html', applications = reminder)
+	else:
+		return render_template('reminder.html', applications = reminder)
 
 
 @app.route('/login', methods=['GET', 'POST'])

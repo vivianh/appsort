@@ -11,6 +11,7 @@
     </script>
 
     <div class="col add title tog">ADD APPLICATION</div>
+    <div class="col title"><a class="remind" href="/reminder">REMINDER</a></div>
     <div class="show">
       <form action="{{ url_for('add_application') }}" method=post class=add>
         <dl>
@@ -26,23 +27,23 @@
               <option value="Rejected">Rejected</option>
             </select>
             <input type=text size=30 name=contact placeholder="Contact">
+            <input type=text size=30 name=email placeholder="email@email.com">
           <dt>
-            <textarea name=notes rows=5 cols=40 placeholder="Notes..."></textarea>
-            <textarea name=interview rows=5 cols=40 placeholder="Interview..."></textarea>
-          <dd><input type=submit value=Share>
+            <textarea name=notes rows=5 cols=42 placeholder="Notes..."></textarea>
+            <textarea name=interview rows=5 cols=42 placeholder="Interview..."></textarea>
+          <dd><input type=submit class="hide" value=ADD>
         </dl>
       </form>
     </div>
   {% endif %}
 
-  <div class=applications>
-    <div class="container">
-      <div class="col company title"> COMPANY </div>
-      <div class="col position title"> POSITION </div>
-      <div class="col date title"> DATE </div>
-      <div class="col status title"> STATUS </div>
-      <div class="col contact title"> CONTACT </div>
-    </div>
+  <div class="container">
+    <div class="col company title"> COMPANY </div>
+    <div class="col position title"> POSITION </div>
+    <div class="col date title"> DATE </div>
+    <div class="col status title"> STATUS </div>
+    <div class="col contact title"> CONTACT </div>
+  </div>
 
   {% for app in applications %}
     <!--

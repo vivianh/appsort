@@ -6,6 +6,7 @@ create table applications (
     date string,
     status string not null,
     contact string,
+    email string,
     notes text,
     interview text
 );
