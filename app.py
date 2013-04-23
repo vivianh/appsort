@@ -79,12 +79,12 @@ def add_application():
     return redirect(url_for('show'))
 
 
-@app.route('/update/<status>/<company>', methods=['POST'])
-def update(status=None, company=None):
+@app.route('/update/<company>', methods=['POST'])
+def update(company=None):
 	g.db.execute('update applications set status = ? where company = ?',
-							[status, company])
+							[request.form['Status'], company])
 	g.db.commit()
-	return redirect(url_for('see_company', company))
+	return redirect(url_for('see_company', comp=company))
 
 
 # did this

@@ -22,9 +22,6 @@
       });
     });
   
-  </script>
-
-  <script>
     $(document).ready(function() {
       $(".tog").click(function() {
         console.log("ll");
@@ -36,24 +33,16 @@
   <div class="col edit title tog">EDIT</div>
 
   <div class="show">
-    <form action="{{ url_for('update', status=company[3], company=company[0]) }}" method=post class=add>
+    <form action="{{ url_for('update', company=company[0]) }}" method=post class=add>
       <dl>
         <dt>
-          <!--
-          <input type=string size=24 name=company placeholder="Company">
-          <input type=text size=18 name=position placeholder="Position">
-          <input type=text size=10 name=date placeholder="Date">
-          -->
           <select name="Status">
             <option value="Interviewing">Interviewing</option>
             <option value="Got Offer">Got Offer</option>
             <option value="Waiting">Waiting</option>
             <option value="Rejected">Rejected</option>
           </select>
-          <!--
-          <input type=text size=20 name=contact placeholder="Contact">
-          -->
-          <input type=submit value=Share>
+          <input type=submit value=Update>
       </dl>
     </form>
   </div>
