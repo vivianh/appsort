@@ -52,7 +52,11 @@
     <li><h2>{{ app.company }}</h2>{{ app.position }} {{ app.date }} {{ app.status }} {{ app.contact }}
     -->
     <div class="container">
-      <div class="col company"> {{ app.company }} </div>
+      <div class="col company"> {{ app.company }} 
+        <div class="triangle">
+          <a href="/{{ app.company }}"> <span class="link"></span> </a>
+        </div>
+      </div>
       <div class="col position"> {{ app.position }} </div>
       <div class="col date"> {{ app.date }} </div>
       <div class="col status"> {{ app.status }} </div>

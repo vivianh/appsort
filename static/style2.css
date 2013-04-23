@@ -19,14 +19,18 @@ h2              { font-size: 1.2em; }
 h1 {
 	font-family: 'Droid Sans';
 	font-weight: 700;
-	font-size: 6em;
+	font-size: 5em;
 	color: #a177a9;
 	text-align: center;
 }
 
 a {
 	text-decoration: none;
+	color: #a177a9;
 }
+	a:hover {
+		color: #a177a9;
+	}
 
 .page {
 	margin: 0 auto; /*2em auto for top/bottom*/
@@ -144,6 +148,10 @@ textarea {
 .container {
 }
 
+.hide {
+	visibility: hidden;
+}
+
 .wrapper {
 	position: relative; /*abs positioning for children and psuedo elements*/
 	width: 100px;
@@ -169,4 +177,24 @@ textarea {
 	border-width: 6px 0 6px 6px;
 	border-style: solid;
 	border-color: transparent #fff;
+}
+
+.triangle {
+	display: inline-block;
+	float: right;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 8px 0 8px 8px;
+	border-color: transparent transparent transparent #a177a9;
+	position: relative;
+}
+
+.link {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0;
+	left: -10;
+	z-index: 1;
 }
