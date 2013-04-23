@@ -11,20 +11,20 @@
         $('.col.interview').toggle(i === 6);
       });
     });
-  */
+  
   
     $(document).ready(function() {
       $(".col.company.nav.one").click(function() {
         $(this).siblings(".col.notes").toggle();
       });
       $(".col.company.nav.two").click(function() {
-        $(this).siblings(".col.interview").toggle();
+        $(this).siblings(".col.interview").toggleClass('show2');
       });
     });
+*/
   
     $(document).ready(function() {
       $(".tog").click(function() {
-        console.log("ll");
         $(this).siblings(".show").toggleClass('show2');
       });
     });

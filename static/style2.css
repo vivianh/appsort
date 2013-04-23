@@ -116,6 +116,7 @@ textarea {
 	font-size: 20px;
 	/*text-align: left;*/
 	font-weight: 500;
+	vertical-align: top;
 }
 	.col.title {
 		background: #a177a9;/*#d18fea;*/
@@ -146,7 +147,6 @@ textarea {
 	}
 	.col.interview {
 		width: 37.7em;
-		display: none;
 	}
 	.col.add {
 		width: 10em;
