@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class=applications>
+    <div class="container">
+        <div class="col company title"> COMPANY </div>
+        <div class="col date title"> DATE </div>
+        <div class="col contact title"> CONTACT </div>
+    </div>
+
+    {% for app in applications %}
+        <div class="container">
+            <div class="col company"> {{ app.company }} </div>
+            <div class="col date"> {{ app.date }} </div>
+            <div class="col contact"> {{ app.contact }} </div>
+        </div>
+    {% else %}
+        No companies to bother!
+    {% endfor %}
+{% endblock %}

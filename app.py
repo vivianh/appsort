@@ -3,6 +3,9 @@ import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
     abort, render_template, flash
 from contextlib import closing
+from datetime import datetime as dt
+import datetime
+from datetime import timedelta
 
 
 #configuration
@@ -60,15 +63,7 @@ def show():
 	return render_template('show.html', applications=applications)
 
 
-@app.route('/status/<s>')
-def show_status(s=None):
-	cur = g.db.execute('select company, position, date, status, contact \
-						from applications where status = ? order by id desc', [s])
-	applications = [dict(company=row[0], position=row[1], date=row[2],
-					status=row[3], contact=row[4]) for row in cur.fetchall()]
-	return render_template('show.html', applications=applications)
-
-
+# must enter in date like this
 @app.route('/add', methods=['POST'])
 def add_application():
     if not session.get('logged_in'):
@@ -76,14 +71,20 @@ def add_application():
     g.db.execute('insert into applications (company, position, date, status, \
     			 contact, notes, interview) values (?, ?, ?, ?, ?, ?, ?)',
                  [request.form['company'], request.form['position'], 
-                  request.form['date'], request.form['Status'], request.form['contact'],
-                  request.form['notes'], request.form['interview']])
+                  request.form['date'], request.form['Status'],
+                  request.form['contact'], request.form['notes'],
+                  request.form['interview']])
     g.db.commit()
     flash('New application was successfully added')
     return redirect(url_for('show'))
 
 
-@app.route('/<comp>', methods=['GET'])
+def update_datetime():
+	g.db.execute('insert into applications datetime value ?')
+
+
+# did this
+@app.route('/<comp>')
 def see_company(comp=None):
 	if not session.get('logged_in'):
 			abort(401)
@@ -93,6 +94,33 @@ def see_company(comp=None):
 	if c is None:
 		return redirect(url_for('show'))
 	return render_template('company.html', company=c)
+
+
+# did this
+@app.route('/status/<s>')
+def show_status(s=None):
+	cur = g.db.execute('select company, position, date, status, contact \
+						from applications where status = ? order by id desc', [s])
+	applications = [dict(company=row[0], position=row[1], date=row[2],
+					status=row[3], contact=row[4]) for row in cur.fetchall()]
+	return render_template('show.html', applications=applications)
+
+
+@app.route('/reminder')
+def reminder():
+	today = dt.today()
+	diff = datetime.timedelta(weeks=2)
+	past = today - diff
+	cur = g.db.execute('select company, contact, date from applications where \
+						status = ?', ['Waiting'])
+	applications = [dict(company=row[0], contact=row[1], date=row[2])
+									for row in cur.fetchall()]
+	print applications
+	reminder = []
+	for app in applications:
+		if dt.strptime(app['date'], "%m/%d/%Y") < past:
+			reminder.append(app)
+	return render_template('reminder.html', applications = reminder)
 
 
 @app.route('/login', methods=['GET', 'POST'])
