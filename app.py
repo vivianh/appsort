@@ -60,6 +60,8 @@ def show():
 						from applications order by id desc')
 	applications = [dict(company=row[0], position=row[1], date=row[2],
 					status=row[3], contact=row[4]) for row in cur.fetchall()]
+	applications = sorted(applications,
+		key=lambda x: dt.strptime(x['date'], "%m/%d/%Y"), reverse=True)
 	return render_template('show.html', applications=applications)
 
 

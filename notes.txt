@@ -23,6 +23,7 @@ done:
 - links back to home page, etc
 - nice UI/UX
 - some sort of editing
+- sorts by date
 
 tuesday afternoon:
 - lots of error checking and ish
