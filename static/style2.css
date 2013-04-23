@@ -126,6 +126,9 @@ textarea {
 	.company {
 		width: 12em;
 	}
+		.company.nav {
+			background: #DDD;
+		}
 	.col.position {
 		width: 10em;
 	}
@@ -139,10 +142,17 @@ textarea {
 		width: 10em;
 	}
 	.col.notes {
-		width: 30em;
+		width: 37.7em;
 	}
 	.col.interview {
-		width: 40em;
+		width: 37.7em;
+		display: none;
+	}
+	.col.add {
+		width: 10em;
+	}
+	.col.edit {
+		width: 3.5em;
 	}
 
 .container {
@@ -188,6 +198,18 @@ textarea {
 	border-width: 8px 0 8px 8px;
 	border-color: transparent transparent transparent #a177a9;
 	position: relative;
+}
+	.triangle.nav {
+		display: block;
+		float: none;
+		margin-left: 10px;
+	}
+
+.show {
+	display: none;
+}
+.show2 {
+	display: inline-block;
 }
 
 .link {

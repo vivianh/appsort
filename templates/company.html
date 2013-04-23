@@ -1,29 +1,87 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class=applications>
-    <div class="container">
-      <div class="col company title"> COMPANY </div>
-      <div class="col position title"> POSITION </div>
-      <div class="col date title"> DATE </div>
-      <div class="col status title"> STATUS </div>
-      <div class="col contact title"> CONTACT </div>
-    </div>
+  
+  <script>
+  /*
+    $(document).ready(function() {
+      $('.struggle').click(function() {
+        var i = $(this).index();
+        console.log(i);
+        $('.col.notes').toggle(i === 2);
+        $('.col.interview').toggle(i === 6);
+      });
+    });
+  */
+  
+    $(document).ready(function() {
+      $(".col.company.nav.one").click(function() {
+        $(this).siblings(".col.notes").toggle();
+      });
+      $(".col.company.nav.two").click(function() {
+        $(this).siblings(".col.interview").toggle();
+      });
+    });
+  
+  </script>
 
-    <div class="container">
-      <div class="col company"> {{ company[0] }} </div>
-      <div class="col position"> {{ company[1] }} </div>
-      <div class="col date"> {{ company[2] }} </div>
-      <div class="col status"> {{ company[3] }} </div>
-      <div class="col contact"> {{ company[4] }} </div>
-    </div>
+  <script>
+    $(document).ready(function() {
+      $(".tog").click(function() {
+        console.log("ll");
+        $(this).siblings(".show").toggleClass('show2');
+      });
+    });
+  </script>
 
-    <div class="container">
-      <div class="col company"> Notes </div>
-      <div class="col notes"> {{ company[5] }} </div>
-    </div>
+  <div class="col edit title tog">EDIT</div>
 
-    <div class="container">
-      <div class="col company"> Interview </div>
-    </div>
+  <div class="show">
+    <form action="{{ url_for('update', status=company[3], company=company[0]) }}" method=post class=add>
+      <dl>
+        <dt>
+          <!--
+          <input type=string size=24 name=company placeholder="Company">
+          <input type=text size=18 name=position placeholder="Position">
+          <input type=text size=10 name=date placeholder="Date">
+          -->
+          <select name="Status">
+            <option value="Interviewing">Interviewing</option>
+            <option value="Got Offer">Got Offer</option>
+            <option value="Waiting">Waiting</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <!--
+          <input type=text size=20 name=contact placeholder="Contact">
+          -->
+          <input type=submit value=Share>
+      </dl>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="col company title"> COMPANY </div>
+    <div class="col position title"> POSITION </div>
+    <div class="col date title"> DATE </div>
+    <div class="col status title"> STATUS </div>
+    <div class="col contact title"> CONTACT </div>
+  </div>
+
+  <div class="container">
+    <div class="col company"> {{ company[0] }} </div>
+    <div class="col position"> {{ company[1] }} </div>
+    <div class="col date"> {{ company[2] }} </div>
+    <div class="col status"> {{ company[3] }} </div>
+    <div class="col contact"> {{ company[4] }} </div>
+  </div>
+
+  <div class="container">
+    <div class="col company nav one"> Notes </div>
+    <div class="col notes">{{ company[5] }}</div>
+  </div>
+
+  <div class="container">
+    <div class="col company nav two"> Interview </div>
+    <div class="col interview"> {{ company[6] }} </div>
+  </div>
 
 {% endblock %}

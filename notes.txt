@@ -16,10 +16,22 @@ features:
 		technical interview screen
 
 
-notes:
-- reminder feature -> google tasks
+done:
+- pages for each company
+- pages for each application status
+- reminder feature, apps with > 2 weeks
 - links back to home page, etc
-- in place editing
-- general UI/UX
+- nice UI/UX
+- some sort of editing
+
+tuesday afternoon:
+- lots of error checking and ish
+- nicer URLs
+- better UI/UX
+
+future:
+- reminder feature -> google tasks
+- in place line editing
 
 - doesn't utilize login/logout currently...
+- would be cool if it got smarter

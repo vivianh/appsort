@@ -1,43 +1,40 @@
 {% extends "layout.html" %}
 {% block body %}
   {% if session.logged_in %}
-    <form action="{{ url_for('add_application') }}" method=post class=add>
-      <dl>
-        <dt>
-          <input type=string size=30 name=company placeholder="Company">
-          <input type=text size=30 name=position placeholder="Position">
-          <input type=text size=10 name=date placeholder="Date">
-        <dt>
-          
-          <!--
-          <input type=text size=30 name=status placeholder="Status">
-          
-          
-          <div id="dd" class="wrapper" tabindex="1">
-            <span>Status</span>
-            <ul class="dropdown">
-              <li><a href="#">Interviewing</a></li>
-              <li><a href="#">Got Offer</a></li>
-              <li><a href="#">Waiting</a></li>
-            </ul>
-          </div>
-          -->
 
-          <select name="Status">
-            <option value="Interviewing">Interviewing</option>
-            <option value="Got Offer">Got Offer</option>
-            <option value="Waiting">Waiting</option>
-            <option value="Rejected">Rejected</option>
-          </select>
-          
-          <input type=text size=30 name=contact placeholder="Contact">
-        <dt>
-          <textarea name=notes rows=5 cols=40 placeholder="Notes..."></textarea>
-          <textarea name=interview rows=5 cols=40 placeholder="Interview..."></textarea>
-        <dd><input type=submit value=Share>
-      </dl>
-    </form>
+    <script>
+      $(document).ready(function() {
+        $(".tog").click(function() {
+          $(this).siblings(".show").toggle();
+        });
+      });
+    </script>
+
+    <div class="col add title tog">ADD APPLICATION</div>
+    <div class="show">
+      <form action="{{ url_for('add_application') }}" method=post class=add>
+        <dl>
+          <dt>
+            <input type=string size=30 name=company placeholder="Company">
+            <input type=text size=30 name=position placeholder="Position">
+            <input type=text size=10 name=date placeholder="Date">
+          <dt>
+            <select name="Status">
+              <option value="Interviewing">Interviewing</option>
+              <option value="Got Offer">Got Offer</option>
+              <option value="Waiting">Waiting</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <input type=text size=30 name=contact placeholder="Contact">
+          <dt>
+            <textarea name=notes rows=5 cols=40 placeholder="Notes..."></textarea>
+            <textarea name=interview rows=5 cols=40 placeholder="Interview..."></textarea>
+          <dd><input type=submit value=Share>
+        </dl>
+      </form>
+    </div>
   {% endif %}
+
   <div class=applications>
     <div class="container">
       <div class="col company title"> COMPANY </div>
@@ -67,7 +64,4 @@
     <em>Unbelievable.  No entries here so far</em>
     -->
   {% endfor %}
-  <!--
-    <p id="edit">Edit me now!</p>
-  -->
 {% endblock %}

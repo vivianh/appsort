@@ -79,8 +79,12 @@ def add_application():
     return redirect(url_for('show'))
 
 
-def update_datetime():
-	g.db.execute('insert into applications datetime value ?')
+@app.route('/update/<status>/<company>', methods=['POST'])
+def update(status=None, company=None):
+	g.db.execute('update applications set status = ? where company = ?',
+							[status, company])
+	g.db.commit()
+	return redirect(url_for('see_company', company))
 
 
 # did this
