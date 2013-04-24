@@ -7,8 +7,8 @@ yay documentation!
 * open python shell and run:  
 
   python  
-  >> from app import init_db  
-  >> init_db()  
+  > from app import init_db  
+  > init_db()  
 
 * run app.py  
 * login with username: admin / password: default  
