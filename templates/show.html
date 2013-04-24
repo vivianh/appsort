@@ -18,7 +18,7 @@
           <dt>
             <input type=string size=30 name=company placeholder="Company">
             <input type=text size=30 name=position placeholder="Position">
-            <input type=text size=10 name=date placeholder="Date">
+            <input type=text size=10 name=date placeholder="mm/dd/yyyy">
           <dt>
             <select name="Status">
               <option value="Interviewing">Interviewing</option>
@@ -46,9 +46,6 @@
   </div>
 
   {% for app in applications %}
-    <!--
-    <li><h2>{{ app.company }}</h2>{{ app.position }} {{ app.date }} {{ app.status }} {{ app.contact }}
-    -->
     <div class="container">
       <div class="col company"> {{ app.company }} 
         <div class="triangle">
@@ -60,9 +57,5 @@
       <div class="col status"> {{ app.status }} </div>
       <div class="col contact"> {{ app.contact }} </div>
     </div>
-  {% else %}
-    <!--
-    <em>Unbelievable.  No entries here so far</em>
-    -->
   {% endfor %}
 {% endblock %}
