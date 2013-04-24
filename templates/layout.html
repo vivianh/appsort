@@ -14,7 +14,6 @@
   <h1><a href="/">vivian's python project</a></h1>
   <br />
   <br />
-  <!--
   <div class=metanav>
   {% if not session.logged_in %}
     <a href="{{ url_for('login') }}">log in</a>
@@ -22,7 +21,6 @@
     <a href="{{ url_for('logout') }}">log out</a>
   {% endif %}
   </div>
-  -->
   {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>
   {% endfor %}

@@ -8,6 +8,15 @@
           $(this).siblings(".show").toggle();
         });
       });
+
+      $(document).ready(function() {
+        $('textarea').keydown(function() {
+          if (event.keyCode == 13) {
+            this.form.submit();
+          return false;
+          }
+        });
+      });
     </script>
 
     <div class="col add title tog">ADD APPLICATION</div>

@@ -82,12 +82,22 @@ def add_application():
         flash('Please specify a position')
     elif request.form['date'] == "":
         flash('Please enter a date in mm/dd/yyyy format')
+    elif not isDateFormat(request.form['date']):
+        flash('Please enter a date in mm/dd/yyyy format')
     elif request.form['contact'] == "":
         flash('Please enter contact info')
     else:
         g.db.commit()
         flash('New application was successfully added')
     return redirect(url_for('show'))
+
+
+def isDateFormat(input):
+    try:
+        dt.strptime(input, "%m/%d/%Y")
+        return True
+    except ValueError:
+        return False
 
 
 @app.route('/update/<company>', methods=['POST'])
@@ -130,6 +140,9 @@ def reminder():
     for app in applications:
         if dt.strptime(app['date'], "%m/%d/%Y") < past:
             reminder.append(app)
+    if not reminder:
+        flash('No companies to bother right now!')
+        return redirect(url_for('show'))
     return render_template('reminder.html', applications=reminder)
 
 
